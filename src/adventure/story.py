@@ -30,8 +30,7 @@ if __name__ == "__main__":
         choice = choice.strip().lower()
 
         if choice == "exit":
-            # Keep message plain—tests look for the word "Goodbye"
-            print("Goodbye! You decided to exit the forest.")
+            console.print("Goodbye!")  # ← must print goodbye using rich
             break
 
-        print(step(choice, events))
+        console.print(step(choice, events))
