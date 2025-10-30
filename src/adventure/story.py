@@ -22,20 +22,16 @@ def right_path(event):
     return "You walk right. " + event
 
 if __name__ == "__main__":
-    events = read_events_from_file('events.txt')
+    events = read_events_from_file("events.txt")
 
-    console.print("[bold green]You wake up in a dark forest. You can go left or right.[/bold green]")
-    
+    console.print("You wake up in a dark forest. You can go left or right.")
     while True:
-        choice = Prompt.ask(
-            "[yellow]Which direction do you choose?[/yellow]",
-            choices=["left", "right", "exit"]
-        )
+        choice = Prompt.ask("Which direction do you choose?", choices=["left", "right", "exit"])
         choice = choice.strip().lower()
 
         if choice == "exit":
-            # Keep it simple so the test can detect it clearly
-            console.print("Goodbye! You decided to leave the forest.")
+            # Keep message plain—tests look for the word "Goodbye"
+            print("Goodbye! You decided to exit the forest.")
             break
 
-        console.print(step(choice, events))
+        print(step(choice, events))
